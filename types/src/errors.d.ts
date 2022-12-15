@@ -1,0 +1,11 @@
+export class InvalidTypeError extends Error {
+    /**
+    * An error to be raised when a property has an invalid type.
+    *
+    * @param {string} name The name of the property.
+    * @param {any} value The invalid value.
+    * @param {string} typeName The name of the valid type.
+    */
+    constructor(name: string, value: any, typeName: string);
+}
+//# sourceMappingURL=errors.d.ts.map

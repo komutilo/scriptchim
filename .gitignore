@@ -1,0 +1,13 @@
+# npm
+node_modules/
+
+# pnpm
+yarn.lock
+package-lock.json
+
+# jest
+coverage/
+
+# misc
+*.log
+.DS_Store
