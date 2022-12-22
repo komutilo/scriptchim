@@ -1,5 +1,5 @@
 {
-  "name": "scriptchim",
+  "name": "scrapty",
   "version": "0.0.1",
   "description": "A quick and dirty way to run an ordered queue of tasks focused on cross OS command line processes.",
   "main": "src/index.js",
@@ -30,14 +30,14 @@
       "url": "https://github.comn/brunurd"
     }
   ],
-  "homepage": "https://github.com/komutilo/scriptchim#readme",
+  "homepage": "https://github.com/komutilo/scrapty#readme",
   "bugs": {
-    "url": "https://github.com/komutilo/scriptchim/issues",
+    "url": "https://github.com/komutilo/scrapty/issues",
     "email": "bruno@komutilo.com"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/komutilo/scriptchim.git"
+    "url": "https://github.com/komutilo/scrapty.git"
   },
   "license": "MIT",
   "dependencies": {
