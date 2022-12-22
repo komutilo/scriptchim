@@ -7,6 +7,7 @@ const { execCmd } = require('../execCmd');
  * @param {function | undefined} next A callback function.
  * @param {string[] | string} args An array or whitespace separated string with cli args.
  * @returns {undefined}
+ * @throws {InvalidTypeError} if type of args param is invalid.
  */
 async function cmdTask(next, args) {
   const ps = await execCmd(args);
