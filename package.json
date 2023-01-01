@@ -1,6 +1,6 @@
 {
   "name": "scrapty",
-  "version": "0.0.2",
+  "version": "1.0.0",
   "description": "A quick and dirty way to run an ordered queue of tasks focused on cross OS command line processes.",
   "main": "src/index.js",
   "types": "./types/**/*.d.ts",
@@ -49,6 +49,9 @@
     "url": "https://github.com/komutilo/scrapty.git"
   },
   "license": "MIT",
+  "bin": {
+    "scrapty": "src/cli.js"
+  },
   "dependencies": {
     "chalk": "4.1.0",
     "cross-env": "^7.0.3",
