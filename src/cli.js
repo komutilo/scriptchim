@@ -1,5 +1,5 @@
 const main = () => {
-    
-}
+  
+};
 
 main();

@@ -49,6 +49,7 @@ async function execCmd(args) {
     const match = envSetterRegex.exec(parsedArgs[i]);
     if (match) {
       let value;
+      console.log(match, match[3], match[4], match[5]);
 
       if (typeof match[3] !== 'undefined') {
         value = match[3];

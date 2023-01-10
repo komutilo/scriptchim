@@ -75,8 +75,7 @@ describe('execCmd function', () => {
     });
   });
 
-  // TODO: This test is failing in the auto split regex pattern in src/execCmd/execCmd.js#13 for this specific case.
-  xit('should define environment variable on call execCmd function with variable definition on argv using single quotes', async () => {
+  it('should define environment variable on call execCmd function with variable definition on argv using single quotes', async () => {
     const mockTf = spawk.spawn('foo');
     // eslint-disable-next-line quotes
     const argv = `ENV_TEST='is-a-env-test' foo apply --refresh --foo bar`;
