@@ -10,7 +10,7 @@ async function spawn(command, args, options) {
 }
 
 function parseArgs(args) {
-  const pattern = new RegExp(/[^\s"]+|"([^"]*)"/gi);
+  const pattern = new RegExp(/[^\s"']+|["']([^"']*)["']/gi);
   const newArgs = [];
   let match;
 
@@ -38,7 +38,7 @@ function parseArgs(args) {
  * @throws {InvalidTypeError} if type of args param is invalid.
  */
 async function execCmd(args) {
-  const envSetterRegex = /(\w+)=('(.*)'|"(.*)"|(.*))/;
+  const envSetterRegex = /(\w+)=('(.*)'|"(.*)"|(.*))/gi;
   const envSetters = {};
   let command = null;
   let commandArgs = [];

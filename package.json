@@ -4,6 +4,15 @@
   "description": "A quick and dirty way to run an ordered queue of tasks focused on cross OS command line processes.",
   "main": "src/index.js",
   "types": "./types/**/*.d.ts",
+  "volta": {
+    "node": "20.11.0",
+    "npm": "10.4.0",
+    "pnpm": "8.15.1"
+  },
+  "engines": {
+    "node": "20.11.0",
+    "npm": "10.4.0"
+  },
   "scripts": {
     "lint": "cross-env eslint -c ./config/.eslintrc --ignore-path ./config/.eslintignore",
     "test": "cross-env jest --config=./config/jest.config.js --forceExit --detectOpenHandles --coverage",
