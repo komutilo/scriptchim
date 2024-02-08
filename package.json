@@ -1,6 +1,6 @@
 {
   "name": "scrapty",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "A quick and dirty way to run an ordered queue of tasks focused on cross OS command line processes.",
   "main": "src/index.js",
   "types": "./types/**/*.d.ts",
@@ -63,5 +63,12 @@
     "jest-junit": "^15.0.0",
     "spawk": "^1.8.0",
     "typescript": "^4.9.4"
+  },
+  "pnpm": {
+    "overrides": {
+      "word-wrap@<1.2.4": ">=1.2.4",
+      "@babel/traverse@<7.23.2": ">=7.23.2",
+      "semver@>=7.0.0 <7.5.2": ">=7.5.2"
+    }
   }
 }
