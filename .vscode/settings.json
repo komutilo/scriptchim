@@ -1,17 +1,66 @@
 {
+  "editor.formatOnSave": true,
+  "editor.formatOnPaste": false,
+  "editor.formatOnType": false,
+  "files.associations": {
+    "*.xml": "html",
+    "*.svg": "html",
+    "*.tsx": "typescriptreact"
+  },
   "files.exclude": {
     "**/.git": true,
-    "**/.DS_Store": true
+    "**/.svn": true,
+    "**/.hg": true,
+    "**/CVS": true,
+    "**/.DS_Store": true,
+    "**/__pycache__": true
   },
   "editor.codeActionsOnSave": {
-    "source.fixAll.eslint": "explicit"
+    "source.fixAll.eslint": "always"
   },
   "eslint.validate": [
-    "javascript",
-    "typescript"
+    "typescript",
+    "javascript"
   ],
   "eslint.format.enable": true,
+  "eslint.useFlatConfig": true,
   "eslint.options": {
-    "overrideConfigFile": "config/.eslintrc"
-  }
+    "overrideConfigFile": "config/eslint.config.mjs"
+  },
+  "[typescriptreact]": {
+    "editor.defaultFormatter": "vscode.typescript-language-features"
+  },
+  "[typescript]": {
+    "editor.defaultFormatter": "vscode.typescript-language-features"
+  },
+  "[javascript]": {
+    "editor.defaultFormatter": "vscode.typescript-language-features"
+  },
+  "[json]": {
+    "editor.defaultFormatter": "vscode.json-language-features"
+  },
+  "[shellscript]": {
+    "editor.defaultFormatter": "foxundermoon.shell-format"
+  },
+  "[yaml]": {
+    "editor.defaultFormatter": "redhat.vscode-yaml"
+  },
+  "[dotenv]": {
+    "editor.defaultFormatter": "foxundermoon.shell-format"
+  },
+  "[jsonc]": {
+    "editor.defaultFormatter": "vscode.json-language-features"
+  },
+  "[ignore]": {
+    "editor.defaultFormatter": "foxundermoon.shell-format"
+  },
+  "cSpell.language": "en,pt,pt-BR",
+  "cSpell.words": [
+    "APPDATA",
+    "Araujo",
+    "outdir",
+    "scrapty",
+    "spawk",
+    "tseslint"
+  ]
 }

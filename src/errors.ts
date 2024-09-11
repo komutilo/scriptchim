@@ -6,10 +6,11 @@ class InvalidTypeError extends Error {
   * @param {any} value The invalid value.
   * @param {string} typeName The name of the valid type.
   */
-  constructor(name, value, typeName) {
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  constructor(name: string, value: any, typeName: string) {
     const msg = `type of ${name} "${typeof value}" is not a valid type. Should be of type ${typeName}.`;
     super(msg);
   }
 }
 
-module.exports = { InvalidTypeError };
+export { InvalidTypeError };

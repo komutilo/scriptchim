@@ -1,6 +1,7 @@
-const spawk = require('spawk');
-const { execCmd } = require('./execCmd');
-const { InvalidTypeError } = require('../errors');
+import spawk from 'spawk';
+import { jest } from '@jest/globals';
+import { execCmd } from './execCmd.cjs';
+import { InvalidTypeError } from '../errors';
 
 describe('execCmd function', () => {
   beforeEach(() => {
@@ -14,14 +15,14 @@ describe('execCmd function', () => {
   });
 
   it('should call command with passed args', async () => {
-    const mockTf = spawk.spawn('foo');
+    const mockCliCall = spawk.spawn('foo');
     const argv = 'foo apply --refresh --foo bar'.split(' ');
 
     const proc = await execCmd(argv);
 
     expect(proc.code).toBe(0);
 
-    expect(mockTf.calledWith).toMatchObject({
+    expect(mockCliCall.calledWith).toMatchObject({
       args: [
         'apply',
         '--refresh',
@@ -32,14 +33,14 @@ describe('execCmd function', () => {
   });
 
   it('should define environment variable on call execCmd function with variable definition on argv', async () => {
-    const mockTf = spawk.spawn('foo');
+    const mockCliCall = spawk.spawn('foo');
     const argv = 'ENV_TEST=is-a-env-test foo apply --refresh --foo bar'.split(' ');
 
     const proc = await execCmd(argv);
 
     expect(proc.code).toBe(0);
 
-    expect(mockTf.calledWith).toMatchObject({
+    expect(mockCliCall.calledWith).toMatchObject({
       args: [
         'apply',
         '--refresh',
@@ -54,14 +55,14 @@ describe('execCmd function', () => {
   });
 
   it('should define environment variable on call execCmd function with variable definition on argv using double quotes', async () => {
-    const mockTf = spawk.spawn('foo');
+    const mockCliCall = spawk.spawn('foo');
     const argv = 'ENV_TEST="is-a-env-test" foo apply --refresh --foo bar'.split(' ');
 
     const proc = await execCmd(argv);
 
     expect(proc.code).toBe(0);
 
-    expect(mockTf.calledWith).toMatchObject({
+    expect(mockCliCall.calledWith).toMatchObject({
       args: [
         'apply',
         '--refresh',
@@ -76,7 +77,7 @@ describe('execCmd function', () => {
   });
 
   it('should define environment variable on call execCmd function with variable definition on argv using single quotes', async () => {
-    const mockTf = spawk.spawn('foo');
+    const mockCliCall = spawk.spawn('foo');
     // eslint-disable-next-line quotes
     const argv = `ENV_TEST='is-a-env-test' foo apply --refresh --foo bar`;
 
@@ -84,7 +85,7 @@ describe('execCmd function', () => {
 
     expect(proc.code).toBe(0);
 
-    expect(mockTf.calledWith).toMatchObject({
+    expect(mockCliCall.calledWith).toMatchObject({
       args: [
         'apply',
         '--refresh',
@@ -99,14 +100,14 @@ describe('execCmd function', () => {
   });
 
   it('should call command with passed args as single string', async () => {
-    const mockTf = spawk.spawn('foo');
+    const mockCliCall = spawk.spawn('foo');
     const argv = 'foo apply --refresh --foo bar';
 
     const proc = await execCmd(argv);
 
     expect(proc.code).toBe(0);
 
-    expect(mockTf.calledWith).toMatchObject({
+    expect(mockCliCall.calledWith).toMatchObject({
       args: [
         'apply',
         '--refresh',
@@ -121,14 +122,14 @@ describe('execCmd function', () => {
   });
 
   it('should call command with passed args with double quoted arg', async () => {
-    const mockTf = spawk.spawn('foo');
+    const mockCliCall = spawk.spawn('foo');
     const argv = 'foo apply --refresh --foo "bar doo"';
 
     const proc = await execCmd(argv);
 
     expect(proc.code).toBe(0);
 
-    expect(mockTf.calledWith).toMatchObject({
+    expect(mockCliCall.calledWith).toMatchObject({
       args: [
         'apply',
         '--refresh',
@@ -139,14 +140,14 @@ describe('execCmd function', () => {
   });
 
   it('should call command with passed args with single quoted arg', async () => {
-    const mockTf = spawk.spawn('foo');
+    const mockCliCall = spawk.spawn('foo');
     const argv = 'foo apply --refresh --foo \'bar doo\'';
 
     const proc = await execCmd(argv);
 
     expect(proc.code).toBe(0);
 
-    expect(mockTf.calledWith).toMatchObject({
+    expect(mockCliCall.calledWith).toMatchObject({
       args: [
         'apply',
         '--refresh',

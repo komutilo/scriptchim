@@ -1,3 +1,6 @@
+import chalk from 'chalk';
+import { execCmd } from '../execCmd/index.cjs';
+
 /**
  * Execute an asynchronous cli command as a process.
  *
@@ -17,5 +20,18 @@
  * @returns {undefined}
  * @throws {InvalidTypeError} if type of args param is invalid.
  */
-export function cmdTask(next: Function | string[] | string, args: string[] | string): undefined;
-//# sourceMappingURL=cmdTask.d.ts.map
+async function cmdTask(next: (() => void) | Array<string> | string, args?: Array<string> | string): Promise<void> {
+  const ps = next && typeof next !== 'function' && (typeof next === 'string' || typeof next === 'object') ?
+    await execCmd(next) :
+    await execCmd(args as Array<string> | string);
+
+  if (ps?.code !== 0) process.exit(ps?.code);
+
+  if (next && typeof next === 'function') {
+    await next();
+  } else {
+    console.log(chalk.yellow(`no next() callback function was provided for command:\n${args}`));
+  }
+}
+
+export { cmdTask };

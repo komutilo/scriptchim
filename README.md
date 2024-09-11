@@ -79,12 +79,12 @@ and how to call it on `package.json`:
 {
   // ...
   "scripts": {
-    "lsTask": "scrapty lsTask"
+    "lsTask": "scrapty lsHome"
   }
   // ...
 }
 ```
-It will work this way with the config on the default path `./scrapty.yaml`, but can be used in another location with the `-c` paramater, for example: `scrapty lsTask -c ./config/my_scrapty.yaml`.  
+It will work this way with the config on the default path `./scrapty.yaml`, but can be used in another location with the `-c` paramater, for example: `scrapty lsHome -c ./config/my_scrapty.yaml`.  
 
 
 ___Observation: The scrapty don't emulate any unix or windows binaries, to run native binaries like "ls" it should be available on the running machine.___

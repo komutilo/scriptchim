@@ -1,3 +1,1 @@
-const { cmdTask } = require('./cmdTask');
-
-module.exports = { cmdTask };
+export * from './cmdTask';

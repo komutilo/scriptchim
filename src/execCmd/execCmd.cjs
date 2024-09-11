@@ -13,6 +13,8 @@ function parseArgs(args) {
   const pattern = new RegExp(/[^\s"']+|["']([^"']*)["']/gi);
   const newArgs = [];
   let match;
+  let i = 0;
+  const parsed = [];
 
   switch (typeof args) {
     case 'object':
@@ -24,7 +26,18 @@ function parseArgs(args) {
           newArgs.push(match[1] ? match[1] : match[0]);
         }
       } while (match != null);
-      return newArgs;
+
+      while (i < newArgs.length) {
+        if (newArgs[i].endsWith('=')) {
+          parsed.push(`${newArgs[i]}${newArgs[i + 1]}`);
+          i++;
+        } else {
+          parsed.push(newArgs[i]);
+        }
+        i++;
+      }
+
+      return parsed;
     default:
       throw new InvalidTypeError('args', args, 'object or string');
   }
@@ -45,11 +58,10 @@ async function execCmd(args) {
   const parsedArgs = parseArgs(args);
 
   for (let i = 0; i < parsedArgs.length; i++) {
-    // eslint-disable-next-line security/detect-object-injection
+
     const match = envSetterRegex.exec(parsedArgs[i]);
     if (match) {
       let value;
-      console.log(match, match[3], match[4], match[5]);
 
       if (typeof match[3] !== 'undefined') {
         value = match[3];
@@ -83,7 +95,7 @@ async function execCmd(args) {
   }
 
   Object.keys(envSetters).forEach((varName) => {
-    // eslint-disable-next-line security/detect-object-injection
+
     env[varName] = varValueConvert(envSetters[varName], varName);
   });
 
